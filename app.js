@@ -56,7 +56,10 @@ app.get('/employee/delete/:id',userRoute.employeeDeleteHandler)
 
 
 
-
+router.get("/logout", (req, res) => {
+  res.clearCookie('UserToken');
+  res.redirect('/teacher'); 
+});
 app.listen(4000, () => {
   console.log("sever listining on 4000");
 });
