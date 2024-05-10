@@ -1,0 +1,105 @@
+<%- include('./partials/top.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/tailwind/output.css">
+<div class="container">
+    <div class="student-form-container">
+        <header>Employee's List</header>
+
+        <div class="all-old-students w-full">
+
+
+            <% if (allEmployees.length> 0) { %>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-teal-400">
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                name</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                email</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                phone</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                designation</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                gender</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                course</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                Create date</th>
+                            <th class="border text-sm font-semibold border-black py-1 px-2">
+                                action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <% allEmployees.forEach(employee=> { %>
+
+
+                            <tr class="bg-white">
+                                <td class="border border-black py-2 px-2">
+                                    <a class="text-gray-800 font-medium text-sm">
+                                        <%= employee.name %>
+                                    </a>
+                                </td>
+                                <td class="border border-black py-2 px-2">
+                                    <p class="text-gray-800 text-sm">
+                                        <%= employee.email %>
+                                    </p>
+                                </td>
+                                <td class="border border-black py-2 px-2">
+                                    <p class="text-gray-800 text-sm">
+                                        <%= employee.phone %>
+                                    </p>
+                                </td>
+                                <td class="border border-black py-2 px-2">
+                                    <%= employee.designation %>
+                                </td>
+                                <td class="border border-black py-2 px-2">
+                                    <%= employee.gender %>
+                                </td>
+                                <td class="border border-black py-2 px-2">
+                                    <%= employee.course %>
+                                </td>
+
+                                <td class="border border-black py-2 px-2">
+                                    <%= employee.createdAt.toDateString() %>
+                                </td>
+                                
+                                <td class="border border-black py-2 px-2">
+                                 <a href="/employee/edit/<%= employee._id %>">edit</a>
+                                 <a href="/employee/delete/<%= employee._id %>">delete</a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } else{ %>
+                    <h1 class="text-center font-semibold text-2xl text-gray-400 mt-28">not
+                        employees here</h1>
+                    <% } %>
+
+        </div>
+
+        <% if (emsg != '' && emsg.length>0) { %>
+            <p class="warning">
+                <%= emsg %>
+                
+                <i class="fa-solid fa-xmark"></i>
+            </p>
+            <% } else if (smsg != '' && smsg.length>0) { %>
+                <p class="success ">
+                    <%= smsg %>
+                    
+                    <i class="fa-solid fa-xmark"></i>
+                </p>
+            <% } %>
+    </div>
+</div>
+    
+</body>
+</html>
+
+
+<!-- =================================================================================== -->
+

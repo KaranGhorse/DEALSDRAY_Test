@@ -1,0 +1,99 @@
+<%- include('./partials/top.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/tailwind/output.css">
+<div class="container">
+    <div class="student-form-container">
+        <header>Employee Creation Form</header>
+
+        <form action="/create-employee" method="post" enctype='multipart/form-data'>
+            <div class="form-first">
+                <div class="details personal">
+                    
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="fullName">Full Name</label>
+                            <input id="fullName" type="text" placeholder="Enter Your Name"
+                                name="name" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="email">Email</label>
+                            <input id="email" type="Email" placeholder="Enter Your Email"
+                                name="email" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="mobile">Mobile Number</label>
+                            <input id="mobile" type="number" pattern="[0-9]{10}"
+                                placeholder="Enter Your Number" name="phone" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="Designation">Designation</label>
+                            <select type="text" placeholder="Designation" name="designation" required>
+                                <option value="">Designation</option>
+                                <option value="hr">HR</option>
+                                <option value="manager">Manager
+                                </option>
+                                <option value="sales">Sales</option>
+
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="gender">Gender</label>
+                            <select type="text" placeholder="Gender" name="gender" required>
+                                <option value="">Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                        
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="course">Course</label>
+                            <select type="text" placeholder="Course" name="course" required>
+                                <option value="">Course</option>
+                                <option value="mca">MCA</option>
+                                <option value="bca">BCA</option>
+                                <option value="bsc">BSC</option>
+                        
+                            </select>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="file">image Upload </label>
+                            <input id="file" type="file"
+                                name="file" required  accept="image/*" >
+                        </div>
+
+                    </div>
+                    <button class="nextBtn" type="submit">
+                        <span class="btnText">
+                            create
+                        </span>
+                        <i class="ri-arrow-right-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <% if (emsg != '' && emsg.length>0) { %>
+            <p class="warning">
+                <%= emsg %>
+                
+                <i class="fa-solid fa-xmark"></i>
+            </p>
+            <% } else if (smsg != '' && smsg.length>0) { %>
+                <p class="success ">
+                    <%= smsg %>
+                    
+                    <i class="fa-solid fa-xmark"></i>
+                </p>
+            <% } %>
+    </div>
+</div>
+    
+</body>
+</html>
+
+
+<!-- =================================================================================== -->
+

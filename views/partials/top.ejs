@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/tailwind/output.css">
+</head>
+<body>
+<div class="w-full flex items-center justify-around  py-8 text-xl font-semibold bg-slate-400">
+    <div class="logo">
+        dashboard
+    </div>
+    <nav class="flex items-center gap-6">
+        <a href="/create-employee">create employee</a>
+        <a href="/employee-list">Employee-list</a>
+        <a href="/home"><%= user.username %></a>
+        <a href="/logout">logout</a>
+    </nav>
+</div>
